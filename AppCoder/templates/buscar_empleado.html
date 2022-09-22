@@ -1,0 +1,11 @@
+{% extends "padre.html" %}
+
+{% load static %}
+{% block contenido %}
+<p> Estamos buscando al empleado con mail {{email}}</p>
+{% if empleado %}
+<p>El empleado con mail {{email}} es {{empleado.nombre}} {{empleado.apellido}} </p>
+{% else %}
+<p>El empleado con mail {{email}} no existe </p>
+{% endif %}
+{% endblock %}

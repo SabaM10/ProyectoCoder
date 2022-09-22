@@ -88,3 +88,12 @@ def delete_administrativos(request, administrativo_id):
 
       administrativos = Administrativo.objects.all()
       return render(request, 'administrativosCRUD/read_administrativos.html', {'administrativos': administrativos})
+
+def buscar_empleado(request):
+      if request.GET.get('nombre'):
+            nombre = request.get('nombre')
+            empleados = Empleado.objects.filter(nombre__icontains=nombre)
+            return render(request, 'empleadosCRUD/read_empleados.html', {'empleados': empleados})
+      else:
+            empleados = Empleado.objects.all()
+            return render(request, 'empleadosCRUD/read_empleados.html', {'empleados': empleados})
