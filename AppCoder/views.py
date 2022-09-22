@@ -2,7 +2,7 @@ from tkinter import E
 from django.http.request import QueryDict
 from django.shortcuts import render, HttpResponse
 from django.http import HttpResponse
-from AppCoder.forms import form_empleados
+from AppCoder.forms import *
 from AppCoder.models import *
 # Create your views here.
 def index(request):
@@ -28,6 +28,7 @@ def update_empleados(request, empleado_id):
             formulario = form_empleados(request.POST)
 
             if formulario.is_valid():
+                  
                   empleado.nombre = request.POST['nombre']
                   empleado.apellido = request.POST['apellido']
                   empleado.email = request.POST['email']
@@ -47,3 +48,43 @@ def delete_empleados(request, empleado_id):
 
       empleados = Empleado.objects.all()
       return render(request, 'empleadosCRUD/read_empleados.html', {'empleados': empleados})
+
+
+def create_administrativos(request):
+      if request.method == 'POST':
+            administrativo = Administrativo(nombre=request.POST['nombre'], apellido=request.POST['apellido'], email=request.POST['email'], area=request.POST['area'], empresa=request.POST['empresa'])
+            administrativo.save()
+            administrativos = Administrativo.objects.all()
+            return render (request, 'administrativosCRUD/read_administrativos.html', {'administrativos': administrativos})
+      return render(request, 'administrativosCRUD/create_administrativos.html')
+
+def read_administrativos(request = None):
+      administrativos = Administrativo.objects.all()
+      return render(request, 'administrativosCRUD/read_administrativos.html', {'administrativos': administrativos})
+
+def update_administrativos(request, administrativo_id):
+      administrativo = Administrativo.objects.get(id=administrativo_id)
+
+      if request.method == 'POST':
+            formulario = form_administrativos(request.POST)
+
+            if formulario.is_valid():
+                  administrativo.nombre = request.POST['nombre']
+                  administrativo.apellido = request.POST['apellido']
+                  administrativo.email = request.POST['email']
+                  administrativo.area = request.POST['area']
+                  administrativo.empresa = request.POST['empresa']
+                  administrativo.save()
+                  read_administrativos()
+                  administrativos = Administrativo.objects.all()
+                  return render(request, 'administrativosCRUD/read_administrativos.html', {'administrativos': administrativos})
+      else:
+            formulario = form_administrativos(initial={'nombre': administrativo.nombre, 'apellido': administrativo.apellido, 'email': administrativo.email, 'area': administrativo.area, 'empresa': administrativo.empresa})
+      return render(request, 'administrativosCRUD/update_administrativos.html', {'administrativo': administrativo})
+
+def delete_administrativos(request, administrativo_id):
+      administraivo = Administrativo.objects.get(id=administrativo_id)
+      administraivo.delete()
+
+      administrativos = Administrativo.objects.all()
+      return render(request, 'administrativosCRUD/read_administrativos.html', {'administrativos': administrativos})

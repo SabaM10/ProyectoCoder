@@ -4,4 +4,4 @@ from .models import *
 
 admin.site.register(Empresa)
 admin.site.register(Empleado)
-admin.site.register(Administrativos)
+admin.site.register(Administrativo)
