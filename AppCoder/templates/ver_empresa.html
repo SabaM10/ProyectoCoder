@@ -1,0 +1,15 @@
+{% extends "padre.html" %}
+
+{% load static %}
+{% block contenido %}
+<h1>Empresas</h1>
+<div>
+    {% for empresa in empresas %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{empresa.nombre}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{empresa.orientacion}}</h6>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

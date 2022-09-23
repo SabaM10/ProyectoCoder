@@ -90,10 +90,21 @@ def delete_administrativos(request, administrativo_id):
       return render(request, 'administrativosCRUD/read_administrativos.html', {'administrativos': administrativos})
 
 def buscar_empleado(request):
-      if request.GET.get('nombre'):
-            nombre = request.get('nombre')
-            empleados = Empleado.objects.filter(nombre__icontains=nombre)
-            return render(request, 'empleadosCRUD/read_empleados.html', {'empleados': empleados})
+      if 'email' in request.GET:
+            email = request.GET['email']
+            empleado = Empleado.objects.get(email=email)
+            return render(request, 'buscar_empleado.html', {'empleado': empleado})
       else:
-            empleados = Empleado.objects.all()
-            return render(request, 'empleadosCRUD/read_empleados.html', {'empleados': empleados})
+            return render(request, 'buscar_empleado.html')
+
+def agregar_empresa(request):
+      if request.method == 'POST':
+            empresa = Empresa(nombre=request.POST['nombre'], orientacion=request.POST['orientacion'])
+            empresa.save()
+            empresas = Empresa.objects.all()
+            return render(request, 'ver_empresa.html', {'empresas': empresas})
+      return render(request, 'agregar_empresa.html')
+
+def ver_empresas(request):
+      empresas = Empresa.objects.all()
+      return render(request, 'ver_empresas.html', {'empresas': empresas})

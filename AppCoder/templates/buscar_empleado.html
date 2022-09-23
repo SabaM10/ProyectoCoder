@@ -2,10 +2,42 @@
 
 {% load static %}
 {% block contenido %}
-<p> Estamos buscando al empleado con mail {{email}}</p>
-{% if empleado %}
-<p>El empleado con mail {{email}} es {{empleado.nombre}} {{empleado.apellido}} </p>
-{% else %}
-<p>El empleado con mail {{email}} no existe </p>
-{% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Buscar empleado</h1>
+                <form class="formDataPersona" action="/AppCoder/buscar_empleado/" method="GET">
+                    <input type="email" name="email" placeholder="email">
+                    <button type="submit" class="btn btn-primary">Buscar persona</button>
+                </form>
+
+                {%if empleado %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Area</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            <tr>
+                                <td>{{empleado.nombre}}</td>
+                                <td>{{empleado.apellido}}</td>
+                                <td>{{empleado.email}}</td>
+                                <td>{{empleado.area}}</td>
+                                <td>
+                                    <a class="btn btn-primary" href="/AppCoder/update_empleados/{{empleado.id}}">Editar</a>
+                                    <a class="btn btn-danger" href="/AppCoder/delete_empleados/{{empleado.id}}">Eliminar</a>
+                                </td>
+                            </tr>
+                            {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}

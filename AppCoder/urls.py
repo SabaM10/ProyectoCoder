@@ -13,5 +13,7 @@ urlpatterns = [
     path('read_administrativos/', read_administrativos),
     path('update_administrativos/<administrativo_id>', update_administrativos),
     path('delete_administrativos/<administrativo_id>', delete_administrativos),
-    path('buscar_empleado/', buscar_empleado,)
+    path('buscar_empleado/', buscar_empleado),
+    path('agregar_empresa/', agregar_empresa),
+    path('ver_empresas/', ver_empresas),
 ]

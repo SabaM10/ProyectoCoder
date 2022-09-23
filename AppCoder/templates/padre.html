@@ -25,12 +25,14 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="/AppCoder/">AppCoder</a>   
-                 <form class="formDataPersona" action="/AppCoder/buscar_empleado/" method="GET">
-                    <input type="nombre" name="nombre" placeholder="nombre">
-                    <a class="btn btn-primary" href="/AppCoder/buscar_empleado">Buscar persona</a>
-                </form>
+                 <!-- <form class="formDataPersona" action="/AppCoder/buscar_empleado/" method="GET">
+                    <input type='email' name='email' placeholder="email">
+                    
+                </form> -->
+                <a class="btn btn-primary" href="/AppCoder/buscar_empleado">Buscar persona</a>
                 <a class="btn btn-primary" href="/AppCoder/read_administrativos">Ver administrativo</a>
                 <a class="btn btn-primary" href="/AppCoder/read_empleados">Ver empleado</a>
+                <a class="btn btn-primary" href="/AppCoder/agregar_empresa">Agregar empresa</a>
             </div>
         </nav>
 
@@ -53,8 +55,7 @@
 
         <!-- Esto es lo que va a cambiar-->
 
-        {% block contenido %}
-
+        {% block contenido %} 
         {% endblock %}
         <!-- Footer-->
         <footer class="footer bg-light">
