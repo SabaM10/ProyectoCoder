@@ -1,0 +1,33 @@
+{% extends "padre.html" %}
+
+{% load static %}
+{% block contenido %}
+<link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+<form method="POST">{% csrf_token %}
+    <table>
+        <tr>
+            <td>Nombre</td>
+            <td><input type="text" name="nombre" value="{{administrativo.nombre}}"></td>
+        </tr>
+        <tr>
+            <td>Apellido</td>
+            <td><input type="text" name="apellido" value="{{administrativo.apellido}}"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="email" value="{{administrativo.email}}"></td>
+        </tr>
+        <tr>
+            <td>Jefe de Area</td>
+            <td><input type="text" name="area" value="{{administrativo.area}}"></td>
+        </tr>
+        <tr>
+            <td>Empresa</td>
+            <td><input type="text" name="empresa" value="{{administrativo.empresa}}"></td>
+        </tr>
+        <tr>
+            <td><button type="submit" class="btn btn-primary btndj">Actualizar</button></td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

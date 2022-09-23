@@ -1,0 +1,14 @@
+{% extends "padre.html" %}
+{% load static %}
+{%block contenido%}
+<div class="contenidoAdministrativos">
+    <form class="formDataAdministrativos" action="/AppCoder/create_administrativos/" method="POST"> {% csrf_token %}
+        <input type="text" name = "nombre" placeholder="nombre"><br>
+        <input type="text" name = "apellido"placeholder="Apellido"><br>
+        <input type="email" name = "email" placeholder="email"><br>
+        <input type="text" name = "area" placeholder="area"><br>
+        <input type="text" name = "empresa" placeholder="empresa"><br>
+        <button type="submit" class="btn btn-primary btndj">Registrar</button>
+    </form>
+</div>
+{% endblock %}

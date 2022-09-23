@@ -1,0 +1,12 @@
+{% extends "padre.html" %}
+
+{% load static %}
+{% block contenido %}
+<div class="contenidoEmpresa">
+    <form class="formDataEmpresa" action="/AppCoder/agregar_empresa/" method="POST"> {% csrf_token %}
+        <input type="text" name = "nombre" placeholder="nombre"><br>
+        <input type="text" name = "orientacion" placeholder="orientacion"><br>
+        <button type="submit" class="btn btn-primary btndj">Registrar</button>
+    </form>
+</div>
+{% endblock %}

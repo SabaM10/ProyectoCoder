@@ -1,0 +1,28 @@
+{% extends "padre.html" %}
+
+{% load static %}
+{% block contenido %}
+
+    <!-- <div>
+        <form class="formDataEmpleados" action="/AppCoder/buscar_estudiante/" method="GET">
+            <input type="email" name = "email" placeholder="email">
+            <button type="submit" class="btn btn-primary btndj">Buscar</button>
+        </form>
+    </div> -->
+    <H1>Jefes de Area</H1> <a class="btn btn-primary" href="/AppCoder/create_administrativos">Agregar administrativo</a>
+    <div>
+        {% for administrativo in administrativos %}
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{administrativo.nombre}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{administrativo.apellido}}</h6>
+                    <p class="card-text">{{administrativo.email}}</p>
+                    <p class="card-text">{{administrativo.area}}</p>
+                    <p class="card-text">{{administrativo.empresa}}</p>
+                    <a href="/AppCoder/update_administrativos/{{administrativo.id}}" class="btn btn-primary">Editar</a>
+                    <a href="/AppCoder/delete_administrativos/{{administrativo.id}}" class="btn btn-primary">Eliminar</a>
+                </div>
+            </div>
+        {% endfor %}
+
+{% endblock %}

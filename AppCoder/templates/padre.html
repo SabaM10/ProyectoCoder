@@ -24,9 +24,15 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#">AppCoder</a>
-                <a class="btn btn-primary" href="#">Agregar empresa</a>
-                <a class="btn btn-primary" href="#">Agregar empleado</a>
+                <a class="navbar-brand" href="/AppCoder/">AppCoder</a>   
+                 <!-- <form class="formDataPersona" action="/AppCoder/buscar_empleado/" method="GET">
+                    <input type='email' name='email' placeholder="email">
+                    
+                </form> -->
+                <a class="btn btn-primary" href="/AppCoder/buscar_empleado">Buscar persona</a>
+                <a class="btn btn-primary" href="/AppCoder/read_administrativos">Ver administrativo</a>
+                <a class="btn btn-primary" href="/AppCoder/read_empleados">Ver empleado</a>
+                <a class="btn btn-primary" href="/AppCoder/agregar_empresa">Agregar empresa</a>
             </div>
         </nav>
 
@@ -39,15 +45,6 @@
                         <div class="text-center text-black">
                             <!-- Page heading-->
                             <h1 class="mb-5">Nuestra web Intermedia de Django - CoderHouse</h1>
-                            <!-- Signup form-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
-                           
                         </div>
                     </div>
                 </div>
@@ -58,48 +55,11 @@
 
         <!-- Esto es lo que va a cambiar-->
 
-        {% block contenidoQueCambia %}
-
+        {% block contenido %} 
         {% endblock %}
-
-
-        
-     
         <!-- Footer-->
         <footer class="footer bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                        <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">Ayuda</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contacto</a></li>
-                      
-                        </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Curso de Python - CoderHouse.</p>
-                    </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </footer>
-        <!-- Bootstrap core JS-->
-        <!-- Core theme JS-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>
